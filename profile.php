@@ -22,16 +22,7 @@
 
 
     </div>
-    <div class="column">
-      <h1><label>YOU MIGHT LIKE</label></h1>
-      <ul>
-        <li><a href="#">JOE BIDEN</a></li>
-        <li><a href="">DONALD TRUMP</a></li>
-        <li><a href="">MAHDI</a></li>
-        <li><a href="">SOME USER</a></li>
-      </ul>
 
-    </div>
 
     <div class="card">
 
@@ -53,7 +44,16 @@
       }
       ?>
     </div>
+    <div class="column">
+      <h1><label>YOU MIGHT LIKE</label></h1>
+      <ul>
+        <li><a href="#">JOE BIDEN</a></li>
+        <li><a href="">DONALD TRUMP</a></li>
+        <li><a href="">MAHDI</a></li>
+        <li><a href="">SOME USER</a></li>
+      </ul>
 
+    </div>
   </section>
 </body>
 
