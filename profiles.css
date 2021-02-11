@@ -89,6 +89,7 @@ label{
 .row:after {
   content: "";
   display: table;
+  border: 1px solid;
   clear: both;
 }
 
@@ -96,5 +97,9 @@ label{
 @media screen and (max-width: 600px) {
   .column {
     width: 100%;
+  }
+  .phone{
+
+    display: none !important;
   }
 } 

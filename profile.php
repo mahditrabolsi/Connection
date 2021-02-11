@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <section class="container">
+  <section class="row">
     <div class="column">
 
       <ul>
@@ -44,7 +44,7 @@
       }
       ?>
     </div>
-    <div class="column">
+    <div class="column phone">
       <h1><label>YOU MIGHT LIKE</label></h1>
       <ul>
         <li><a href="#">JOE BIDEN</a></li>
