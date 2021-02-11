@@ -1,0 +1,93 @@
+*{
+	padding: 10;
+	margin: 0;
+	box-sizing: border-box;
+	
+}
+
+body{
+
+	
+	overflow:auto;
+	text-align: center;
+	background-image: linear-gradient(to right,#000000,#4b4848, #000000);
+}
+.center {
+	margin-top: 5%;
+	border: 3px solid;
+	border-color: #fbff00;
+	border-radius: 10px;
+	
+	overflow:auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  form {
+
+	  
+    display: block;
+}
+.Logo{
+	margin-Top: 5%;
+}
+.div{
+	max-width:500px;
+}
+div.Title{
+	margin-top: 2%;
+	color: #fbff00;
+}
+div.Signup{
+	color:#fbff00;
+	margin-top: 5%;
+	float: right;
+}
+.Field{
+	margin: 10px;
+}
+.btn{
+	
+	display: inline-block;
+	width: 25%;
+	height: 50px;
+	margin-top: 5%;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background-color: #fbff00;
+	
+	font-size: larger;
+	color: #000;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+
+	cursor: pointer;
+
+}
+
+a:link {
+	color: green;
+	background-color: transparent;
+	text-decoration: none;
+  }
+  
+  a:visited {
+	color: pink;
+	background-color: transparent;
+	text-decoration: none;
+  }
+  
+  a:hover {
+	color: red;
+	background-color: transparent;
+	text-decoration: underline;
+  }
+  
+  a:active {
+	color: yellow;
+	background-color: transparent;
+	text-decoration: underline;
+  }
+
+
