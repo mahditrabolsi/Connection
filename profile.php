@@ -10,10 +10,20 @@
 </head>
 
 <body>
-  <section class="row">
+  <section class="container">
+
+    <div class="card">
+
+      <label style="font-size: 6mm;">Mahdi Trabolsi</label>
+      <br>
+      <label style="font-size: 4mm;">@mahdi_trabolsi
+      </label>
+      <br>
+    </div>
+    <div class="row">
     <div class="column">
 
-      <ul>
+      <ul class="side wrapper box1">
         <li><a href="#">PROFILE</a></li>
         <li><a href="">HOME</a></li>
         <li><a href="">SEARCH</a></li>
@@ -24,18 +34,7 @@
     </div>
 
 
-    <div class="card">
-
-      <label style="font-size: 6mm;">Mahdi Trabolsi</label>
-      <br>
-      <label style="font-size: 4mm;">@mahdi_trabolsi
-      </label>
-      <br>
-      <br>
-      <br>
-
-    </div>
-    <div class="column">
+    <div class="column main">
 
       <?php
 
@@ -46,13 +45,14 @@
     </div>
     <div class="column phone">
       <h1><label>YOU MIGHT LIKE</label></h1>
-      <ul>
+      <ul class="phonelist">
         <li><a href="#">JOE BIDEN</a></li>
         <li><a href="">DONALD TRUMP</a></li>
         <li><a href="">MAHDI</a></li>
         <li><a href="">SOME USER</a></li>
       </ul>
 
+    </div>
     </div>
   </section>
 </body>
