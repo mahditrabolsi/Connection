@@ -1,75 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Connection</title>
+  <link rel="icon" href="images/connection.png">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+  <div >
+    <img class="Logo" src="images/connection.png">
+
+  </div>
+  <div class="Title">
+    
+    <h1>Welcome to Connection</h1>
+    <h3>Your Portal to The World </h3>
+
+  </div>
+  <div class="center div">
+    <form action="" method="POST">
+      <div class="Field" >
+        <input type="email"  name="email" placeholder="Email" required="required">
+      </div>
+      <div class="Field">
+        <input type="password" name="password" placeholder="Password" required="required">
+      </div>
+      <div>
+        <button type="submit" class="btn" value="Log In">Log In</button>
+      </div>
+      
+    </form>
+    <div class="Signup">
+      <h3>Dont have an Account?  <a href="Signup.php"  >SignUp</a></h3>
+     
+    </div>
+  </div>
+  <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
+
+
 <?php
+$servername = "localhost";
+$dbusername = "root";
+$dbpassword = "";
+$db = mysqli_connect($servername,$dbusername,$dbpassword,"Connection");
 
    session_start();
    
    if($_SERVER["REQUEST_METHOD"] == "POST") {
  
       
-      $myusername = mysqli_real_escape_string($db,$_POST['username']);
+      $email = mysqli_real_escape_string($db,$_POST['email']);
       $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
-      
-      $sql = "SELECT id FROM admin WHERE username = '$myusername' and passcode = '$mypassword'";
+
+      $sql = "SELECT Username,Password FROM Users WHERE email = '$email'";
       $result = mysqli_query($db,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      $active = $row['active'];
       
       $count = mysqli_num_rows($result);
-      
-      // If result matched $myusername and $mypassword, table row must be 1 row
-		
-      if($count == 1) {
+
+      if($count == 1 && password_verify($mypassword,$row['Password'])) {
+         $_SESSION['username'] = $row['Username'];
+
+         header("location: profile.php");
+         exit;
+      }
    
-         $_SESSION['login_user'] = $myusername;
-         
-         header("location: welcome.php");
-      }else {
+      else {
          $error = "Your Login Name or Password is invalid";
+         echo $error;
       }
    }
 ?>
-<html>
-   
-   <head>
-      <title>Login Page</title>
-      
-      <style type = "text/css">
-         body {
-            font-family:Arial, Helvetica, sans-serif;
-            font-size:14px;
-         }
-         label {
-            font-weight:bold;
-            width:100px;
-            font-size:14px;
-         }
-         .box {
-            border:#666666 solid 1px;
-         }
-      </style>
-      
-   </head>
-   
-   <body bgcolor = "#FFFFFF">
-	
-      <div align = "center">
-         <div style = "width:300px; border: solid 1px #333333; " align = "left">
-            <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
-				
-            <div style = "margin:30px">
-               
-               <form action = "" method = "post">
-                  <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
-                  <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
-                  <input type = "submit" value = " Submit "/><br />
-               </form>
-               
-               <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
-					
-            </div>
-				
-         </div>
-			
-      </div>
-
-   </body>
-</html>

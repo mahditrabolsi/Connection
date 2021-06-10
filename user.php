@@ -1,4 +1,9 @@
-<?php include 'database.php'; ?>
+<?php include 'database.php';
+
+if (isset($_GET['uname']))
+  $user = $_GET['uname'];
+
+?>
 
 <head>
   <meta charset="UTF-8">
@@ -36,23 +41,28 @@
 
       </div>
 
-
+<input type="submit" value="follow">
       <div class="column main">
 
-      <?php if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['textarea']!='')submitpost();
-        getposts($username);
+        <?php
+        global $db;
+        $sql = "SELECT * FROM Users WHERE username = '$user'";
+        $result = mysqli_query($db, $sql);
+
+        if (mysqli_num_rows($result) == 1) {
+
+          $row = mysqli_fetch_assoc($result);
+          echo "<h1 style=margin-top:5%;>" . $row['FirstName'] . " " . $row['LastName'] . "<br></h1>";
+
+
+          echo "<h2>@" . $user . "</h2><br><hr>";
+
+          getposts($user);
+        }
+
         ?>
       </div>
-      <div class="column phone">
-        <h1><label>Share your Thoughts</label></h1>
-        <form action="profile.php" method="post">
-          <textarea name="textarea" id="text" maxlength="250" rows="5"></textarea>
-          <button class="post" type="submit">Submit</button>
-        </form>
-        <?php if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['textarea']=='')echo "<h3 style='color:red'>post can't be empty</h5>";
-        
-        ?>
-      </div>
+
     </div>
   </section>
 </body>
